@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile  Page</title>
+    <link rel="stylesheet" href="../css/output.css">
+</head>
+<body class="bg-black text-white">
+      <!-- Header -->
+<header class="w-full bg-[#171b26] border-b border-[#242838]">
+    <div class="w-full px-4 sm:px-6 lg:px-8 py-4">
+
+        <!-- Header Top -->
+        <div class="flex items-center justify-between">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <img
+                    src="https://img.magnific.com/premium-vector/rtl-logo-rtl-letter-rtl-letter-logo-design-initials-rtl-logo-linked-with-circle-uppercase-monogram-logo-rtl-typography-technology-business-real-estate-brand_229120-67750.jpg?semt=ais_hybrid&w=740&q=80"
+                    alt="RT Learning Logo"
+                    class="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover"
+                >
+
+                <span class="text-lg sm:text-xl font-bold text-white">
+                    RT Learning
+                </span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-4 lg:gap-6">
+
+                <a href="#"
+                   class="text-gray-400 hover:text-white transition">
+                    Dashboard
+                </a>
+
+                <a href="#"
+                   class="text-gray-400 hover:text-white transition">
+                    My Course
+                </a>
+
+                <a href="#"
+                   class="text-gray-400 hover:text-white transition">
+                    Practice Tests
+                </a>
+
+                <a href="#"
+                   class="text-gray-400 hover:text-white transition">
+                    Profile
+                </a>
+
+                <a href="#"
+                   class="bg-[#817dff] text-black px-4 py-2 rounded-lg font-medium
+                          hover:bg-[#5853d1] hover:text-white transition">
+                    Contact Us
+                </a>
+
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="md:hidden text-white text-2xl p-2"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav
+            id="mobile-menu"
+            class="hidden md:hidden mt-4 pt-4 border-t border-[#242838]"
+        >
+
+            <div class="flex flex-col gap-2">
+
+                <a href="#"
+                   class="text-gray-400 hover:text-white px-3 py-3 rounded-lg
+                          hover:bg-[#242838] transition">
+                    Dashboard
+                </a>
+
+                <a href="#"
+                   class="text-gray-400 hover:text-white px-3 py-3 rounded-lg
+                          hover:bg-[#242838] transition">
+                    My Course
+                </a>
+
+                <a href="#"
+                   class="text-gray-400 hover:text-white px-3 py-3 rounded-lg
+                          hover:bg-[#242838] transition">
+                    Practice Tests
+                </a>
+
+                <a href="#"
+                   class="text-gray-400 hover:text-white px-3 py-3 rounded-lg
+                          hover:bg-[#242838] transition">
+                    Profile
+                </a>
+
+                <a href="#"
+                   class="bg-[#817dff] text-black px-4 py-3 rounded-lg
+                          font-medium text-center hover:bg-[#5853d1]
+                          hover:text-white transition">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </nav>
+
+    </div>
+</header>
+  <!-- Search & User Info -->
+<div class="mx-auto max-w-full px-5 pb-16 sm:px-8 lg:px-12">
+
+
+<div class="flex items-center gap-4 py-6 sm:gap-8">
+      <label class="relative block w-full max-w-xl">
+        <span class="sr-only">Search lessons</span>
+        <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+        <input id="searchInput" type="search" placeholder="Search lessons, grammar rules, idioms..." class="h-10 w-full rounded-md border border-white/10 bg-[#1a1e2b] px-10 text-xs text-slate-200 outline-none placeholder:text-slate-600 focus:border-lavender/60 focus:ring-2 focus:ring-lavender/20" />
+      </label>
+      <div class="ml-auto hidden items-center gap-7 sm:flex">
+        <span class="rounded-full bg-[#1a1e2b] px-3 py-1.5 text-[10px] font-bold text-amber-400">🔥 &nbsp;14 days</span>
+        <button type="button" aria-label="Notifications" class="relative text-slate-400 transition hover:text-white">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/><path d="M19 4l1 1m-1-1 1-1"/></svg>
+        </button>
+        <div class="flex items-center gap-2.5">
+          <div class="grid h-7 w-7 place-items-center rounded-full bg-amber-500 from-amber-200 via-orange-400 to-red-900 text-[10px] font-extrabold text-white">S</div>
+          <div class="leading-tight"><p class="text-[11px] font-bold text-slate-200">Soran</p><p class="mt-0.5 text-[8px] text-slate-500">B2 - advance</p></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+   <section class="flex flex-wrap items-center justify-between gap-6 rounded-3xl bg-[#1a2a2c] p-4 px-5 pb-16">
+      <div class="flex items-center gap-6">
+        <div class="h-14 w-12 rounded-xl bg-amber-400 from-amber-100 to-orange-400 shadow-lg"></div>
+        <div>
+          <div class="flex flex-wrap items-center gap-20">
+            <h1 class="text-xl font-semibold">Soran</h1>
+            <span class="rounded-full bg-white/5 px-3 py-1 text-[10px] text-slate-300">🛡 VERIFIED LEARNER</span>
+          </div>
+          <div class="mt-1 flex flex-wrap gap-x-10 gap-y-1 text-sm">
+            <span class="text-slate-400">@soran_learns</span>
+            <span class="text-slate-300"><span class="text-amber-400">🎓</span> Current Level: <b class="font-medium text-white">B2 High-Intermediate</b></span>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="rounded-lg bg-white/5 px-4 py-2 text-sm hover:bg-white/10">Share</button>
+        <button class="rounded-xl bg-indigo-500 px-5 py-2 text-sm font-medium hover:bg-indigo-400">✎ Edit Profile</button>
+      </div>
+    </section>
+
+
+
+
+        <!-- Stats -->
+        <section class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 pb-8 mt-8 ">
+            <div class="rounded-2xl bg-[#171b27] p-5 ">
+                <div class="flex items-start justify-between">
+                    <p class="text-[11px] tracking-wide text-slate-400">ACTIVE STREAK</p>
+                    <span class="rounded-lg bg-amber-500/15 px-2 py-1.5 text-sm">🔥</span>
+                </div>
+                <p class="mt-2 text-3xl font-semibold">14 <span class="font-normal text-slate-300">Days</span></p>
+                <p class="mt-3 text-[11px] text-amber-400">◉ Personal Best Record!</p>
+            </div>
+            <div class="rounded-2xl bg-[#171b27] p-5">
+                <div class="flex items-start justify-between">
+                    <p class="text-[11px] tracking-wide text-slate-400">WORDS MASTERED</p>
+                    <span class="rounded-lg bg-indigo-400/15 px-2 py-1.5 text-sm text-indigo-300">A</span>
+                </div>
+                <p class="mt-2 text-3xl font-semibold">3,420</p>
+                <p class="mt-3 text-[11px] text-emerald-400">↗ +140 words this week</p>
+            </div>
+            <div class="rounded-2xl bg-[#171b27] p-5">
+                <div class="flex items-start justify-between">
+                    <p class="text-[11px] tracking-wide text-slate-400">QUIZ ACCURACY</p>
+                    <span class="rounded-lg bg-emerald-500/15 px-2 py-1.5 text-sm text-emerald-400">✔</span>
+                </div>
+                <p class="mt-2 text-3xl font-semibold">94%</p>
+                <p class="mt-3 text-[11px] text-emerald-400">Top 3% of cohort</p>
+            </div>
+            <div class="rounded-2xl bg-[#171b27] p-5 px-5 pb-16">
+                <div class="flex items-start justify-between">
+                    <p class="text-[11px] tracking-wide text-slate-400">LISTENING TIME</p>
+                    <span class="rounded-lg bg-amber-500/15 px-2 py-1.5 text-sm">🎧</span>
+                </div>
+                <p class="mt-2 text-3xl font-semibold">42 <span class="font-normal text-slate-300">Hours</span></p>
+                <p class="mt-3 text-[11px] text-slate-400">◔ Auditory immersion</p>
+            </div>
+        </section>
+
+
+<!-- Main grid -->
+
+<section class="grid gap-6 lg:grid-cols-[1.7fr_1fr] ">
+
+            <!-- Left column -->
+            <div class="space-y-6">
+                <div class="rounded-2xl bg-[#171b27] p-6">
+                    <div class="flex items-center justify-between">
+                        <p class="text-[11px] tracking-wide text-slate-400">SKILL ASSESSMENT</p>
+                        <span class="rounded-full bg-white/5 px-3 py-1 text-[10px] text-slate-400">Standardized
+                            Matrix</span>
+                    </div>
+                    <h2 class="mt-3 text-xl font-semibold">CEFR Fluency Breakdown</h2>
+
+                    <div class="mt-4 space-y-4">
+                        <div>
+                            <div class="flex items-end justify-between text-sm">
+                                <span>🎤 Speaking</span>
+                                <span class="text-xs text-slate-400">B2 Low <b
+                                        class="ml-1 text-amber-400">78%</b></span>
+                            </div>
+                            <div class="mt-1 h-1.5 rounded-full bg-white/10">
+                                <div class="h-full w-[78%] rounded-full bg-amber-500"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-end justify-between text-sm">
+                                <span>🎧 Listening</span>
+                                <span class="text-xs text-slate-400">B2 High <b
+                                        class="ml-1 text-emerald-400">88%</b></span>
+                            </div>
+                            <div class="mt-1 h-1.5 rounded-full bg-white/10">
+                                <div class="h-full w-[88%] rounded-full bg-emerald-500"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-end justify-between text-sm">
+                                <span>📖 Reading</span>
+                                <span class="text-xs text-slate-400">C1 Advanced <b
+                                        class="ml-1 text-slate-200">92%</b></span>
+                            </div>
+                            <div class="mt-1 h-1.5 rounded-full bg-white/10">
+                                <div class="h-full w-[92%] rounded-full bg-indigo-300"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-end justify-between text-sm">
+                                <span>✍ Writing</span>
+                                <span class="text-xs text-slate-400">B2 Mid <b
+                                        class="ml-1 text-slate-200">70%</b></span>
+                            </div>
+                            <div class="mt-1 h-1.5 rounded-full bg-white/10">
+                                <div class="h-full w-[70%] rounded-full bg-slate-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-[#1a2540] p-6 mt-8">
+                    <div>
+                        <h2 class="text-xl font-medium">Overall Fluency Score</h2>
+                        <p class="mt-3 max-w-[200px] text-sm leading-relaxed text-slate-400">Composite linguistic rating
+                            calibrated against European framework.</p>
+                        <span
+                            class="mt-4 inline-block rounded-md bg-emerald-500/10 px-3 py-1.5 text-xs text-emerald-400">✓
+                            Ready for C1 prep exam</span>
+                    </div>
+                    <button class="rounded-lg bg-black/40 px-8 py-2.5 text-[11px] hover:bg-black/60">Test Details
+                        ›</button>
+                </div>
+            </div>
+
+            <!-- Right column -->
+            <div class="space-y-6">
+                <div class="rounded-2xl bg-[#171b27] p-4">
+                    <div class="flex items-center justify-between px-1">
+                        <h3 class="text-sm font-medium">Achievements &amp; Badges</h3>
+                        <span class="text-[11px] text-slate-400">4 of 12</span>
+                    </div>
+                    <div class="mt-3 grid grid-cols-2 gap-3">
+                        <div class="rounded-xl bg-[#1d2333] p-4 text-center">
+                            <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">🏅
+                            </div>
+                            <p class="mt-2 text-xs font-semibold">Word Smith</p>
+                            <p class="text-[11px] text-amber-500">Gold Tier</p>
+                        </div>
+                        <div class="rounded-xl bg-[#1d2333] p-4 text-center">
+                            <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">🔥
+                            </div>
+                            <p class="mt-2 text-xs font-semibold">Streak Master</p>
+                            <p class="text-[11px] text-amber-500">Amber Tier</p>
+                        </div>
+                        <div class="rounded-xl bg-[#1b2a35] p-4 text-center">
+                            <div
+                                class="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-400">
+                                ✔✖</div>
+                            <p class="mt-2 text-xs font-semibold">Grammar</p>
+                            <p class="text-[11px] text-emerald-400">Practice</p>
+                        </div>
+                        <div class="rounded-xl bg-[#1d2333] p-4 text-center">
+                            <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-lg text-2xl">🌙</div>
+                            <p class="mt-2 text-xs font-semibold">Night Owl Learner</p>
+                            <p class="text-[11px] text-slate-400">Button</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl bg-[#171b27] p-5">
+                    <div class="flex items-center justify-between">
+                        <p class="text-[11px] tracking-wide text-slate-400">WEEKLY COMMITMENT</p>
+                        <span class="rounded-full bg-emerald-500/10 px-3 py-1 text-[10px] text-emerald-400">✓ 90%
+                            Done</span>
+                    </div>
+                    <h3 class="mt-1 text-xl font-medium">Study Target</h3>
+
+                    <div class="mt-4 flex items-end justify-between text-sm text-slate-400">
+                        <span>Target Completion</span>
+                        <span class="text-xs"><b class="text-white">4.5</b> /5.0 hrs</span>
+                    </div>
+                    <div class="mt-1 h-1.5 rounded-full bg-white/10">
+                        <div class="h-full w-[90%] rounded-full bg-emerald-400"></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between text-xs">
+                        <span>⏰ Target Reminder</span>
+                        <button role="switch" aria-checked="true"
+                            class="flex h-5 w-9 items-center justify-end rounded-full bg-indigo-500 px-0.5">
+                            <span class="h-4 w-4 rounded-full bg-white"></span>
+                        </button>
+                    </div>
+
+                    <div class="mt-4 grid grid-cols-2 gap-3">
+                        <button class="rounded-lg bg-[#1d2333] px-3 py-3 text-[11px] hover:bg-[#252c40]">🏅 Download B2
+                            Cert</button>
+                        <button class="rounded-lg bg-[#1d2333] px-3 py-3 text-[11px] hover:bg-[#252c40]">📄 Share
+                            Transcript</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</div>
+</body>
+</html>
