@@ -4,121 +4,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTLlearning - Welcome</title>
-    <link rel="stylesheet" href="/css/output.css">
+    <title>RTLearning Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="min-h-min flex items-center justify-center p-4 sm:p-6 md:p-8 text-slate-100 font-sans [background:radial-gradient(circle_at_15%_20%,#26305a_0%,transparent_45%),radial-gradient(circle_at_85%_80%,#263a5a_0%,transparent_45%),#0d1424]">
+<body
+    class="min-h-screen bg-[#0c0e17] text-slate-200 font-sans pb-12 antialiased selection:bg-indigo-500 selection:text-white">
 
-<div class="w-5/6 max-w-130 rounded-3xl border border-[#2a3454] p-5 sm:p-7 md:p-9 pb-6 md:pb-7 bg-linear-to-b from-[#141a2e] to-[#0f1424] shadow-[0_40px_80px_rgba(0,0,0,0.45)]">
+    <header class="w-full bg-[#171b26] border-b border-[#242838] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 
-  <!-- Heading -->
-  <div class="text-center mb-6 md:mb-7">
-    <div class="text-xs md:text-[13px] font-semibold text-[#9aa3bf] tracking-[4px] md:tracking-[6px]">WELCOME TO</div>
-    <div class="flex items-center justify-center gap-2.5 mt-2.5 text-lg sm:text-xl md:text-[22px] font-semibold">
-      <div class="w-7 h-7 md:w-7.5 md:h-7.5 rounded-lg bg-[#111528] border border-[#2a3454] flex items-center justify-center text-[11px] md:text-xs font-bold text-red-400">RTL</div>
-      <span>RT Learning</span>
-    </div>
-  </div>
+            <div class="flex items-center justify-between">
 
-  <!-- Stages -->
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 md:gap-4 my-6 md:my-8">
+                <div class="flex items-center gap-3">
+                    <img src="https://img.magnific.com/premium-vector/rtl-logo-rtl-letter-rtl-letter-logo-design-initials-rtl-logo-linked-with-circle-uppercase-monogram-logo-rtl-typography-technology-business-real-estate-brand_229120-67750.jpg?semt=ais_hybrid&w=740&q=80"
+                        alt="RT Learning Logo"
+                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover ring-2 ring-indigo-500/20">
 
-    <div class="relative bg-[#1c2540] border border-[#2a3454] hover:border-2 hover:border-blue-500 rounded-2xl p-4 sm:p-4 md:p-4.5 sm:min-h-27.5 md:min-h-30 flex flex-row sm:flex-col justify-between items-center sm:items-stretch cursor-pointer transition hover:-translate-y-0.5">
-      <div>
-        <div class="text-[11px] tracking-wide text-[#9aa3bf] mb-1 sm:mb-2">STAGE 01</div>
-        <div class="text-base md:text-[17px] font-semibold mb-1 sm:mb-1.5">Beginner</div>
-        <div class="text-[13px] text-[#3ddc97] font-semibold">A1- A2</div>
-      </div>
-      <div class="text-xs text-[#9aa3bf] sm:mt-3.5">60 hrs to target</div>
-    </div>
+                    <span class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                        RT Learning
+                    </span>
+                </div>
 
-    <div class="relative bg-[#1c2540] border border-[#2a3454] hover:border-2 hover:border-blue-500 rounded-2xl p-4 sm:p-4 md:p-4.5 sm:min-h-27.5 md:min-h-30 flex flex-row sm:flex-col justify-between items-center sm:items-stretch cursor-pointer transition hover:-translate-y-0.5 ">
-      <span class="hidden sm:block absolute -top-2.25 left-1/2 -translate-x-1/2 bg-slate-300 text-slate-900 text-[10px] font-bold tracking-wide px-3 py-1 rounded-lg">RECOMMENDED</span>
-      <div>
-        <div class="text-[11px] tracking-wide text-[#9aa3bf] mb-1 sm:mb-2">STAGE 02</div>
-        <div class="text-base md:text-[17px] font-semibold mb-1 sm:mb-1.5">Intermediate</div>
-        <div class="text-[13px] text-[#3ddc97] font-semibold">B1 - B2</div>
-      </div>
-      <div class="text-xs text-[#9aa3bf] sm:mt-3.5">Most popular</div>
-    </div>
+                <nav class="hidden md:flex items-center gap-2 lg:gap-4">
+                    <a href="./index.html"
+                        class="bg-[#817dff] text-black px-4 py-2 rounded-lg font-semibold hover:bg-[#6c67f0] transition text-sm hover:text-white">
+                        Dashboard
+                    </a>
+                    <a href="./Pages/practice.html"
+                        class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">
+                        My Course
+                    </a>
+                    <a href="./Pages/practice.html"
+                        class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">
+                        Practice Tests
+                    </a>
+                    <a href="./Pages/Profile.html"
+                        class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">
+                        Profile
+                    </a>
+                    <a href="./Pages/Contact.html"
+                        class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">
+                        Contact Us
+                    </a>
+                    <a href="./Logout.html"
+                        class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm flex items-center gap-1.5">
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+                        </svg>
+                        Logout
+                    </a>
+                </nav>
 
-    <div class="relative bg-[#1c2540] border border-[#2a3454] hover:border-2 hover:border-blue-500 rounded-2xl p-4 sm:p-4 md:p-4.5 sm:min-h-27.5 md:min-h-30 flex flex-row sm:flex-col justify-between items-center sm:items-stretch cursor-pointer transition hover:-translate-y-0.5">
-      <div>
-        <div class="text-[11px] tracking-wide text-[#9aa3bf] mb-1 sm:mb-2">STAGE 03</div>
-        <div class="text-base md:text-[17px] font-semibold mb-1 sm:mb-1.5">Advanced</div>
-        <div class="text-[13px] text-[#3ddc97] font-semibold">B1 - B2</div>
-      </div>
-      <div class="text-xs text-[#9aa3bf] sm:mt-3.5">Fluency polish</div>
-    </div>
-  </div>
+                <button
+                    class="md:hidden text-gray-300 hover:text-white p-2 rounded-lg focus:outline-none focus:bg-[#242838]"
+                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
 
-  <!-- Socials -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-5 md:mb-6">
-    <button class="flex items-center gap-3 bg-[#1c2540] border border-[#2a3454] rounded-xl px-4 py-3 text-[13px] md:text-sm hover:border-slate-500 transition">
-      <span class="w-5.5 h-5.5 rounded-full bg-white text-[#4285F4] flex items-center justify-center text-[13px] font-bold shrink-0">G</span>
-      with google account
-    </button>
-    <button class="flex items-center gap-3 bg-[#1c2540] border border-[#2a3454] rounded-xl px-4 py-3 text-[13px] md:text-sm hover:border-slate-500 transition">
-      <span class="w-5.5 h-5.5 rounded-full bg-[#1877F2] text-white flex items-center justify-center text-[13px] font-bold shrink-0">f</span>
-      with facebook account
-    </button>
-  </div>
+            </div>
 
-  <!-- Divider -->
-  <div class="flex items-center gap-4 text-[#9aa3bf] text-[13px] my-5 md:my-6">
-    <span class="flex-1 h-px bg-[#2a3454]"></span>
-    or
-    <span class="flex-1 h-px bg-[#2a3454]"></span>
-  </div>
+            <nav id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-[#242838]">
+                <div class="flex flex-col gap-1">
+                    <a href="./index.html"
+                        class="bg-[#817dff] text-black px-4 py-2.5 rounded-lg font-semibold text-center hover:bg-[#6c67f0] transition">
+                        Dashboard
+                    </a>
+                    <a href="./Pages/practice.html"
+                        class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">
+                        My Course
+                    </a>
+                    <a href="./Pages/practice.html"
+                        class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">
+                        Practice Tests
+                    </a>
+                    <a href="./Pages/Profile.html"
+                        class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">
+                        Profile
+                    </a>
+                    <a href="./Pages/Contact.html"
+                        class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">
+                        Contact Us
+                    </a>
+                </div>
+            </nav>
 
-  <!-- Email -->
-  <div class="mb-5">
-    <div class="flex justify-between items-center mb-2">
-      <span class="text-xs md:text-[13px] font-semibold">Your Email</span>
-      <span class="text-xs text-[#3ddc97] flex items-center gap-1">✓ Verified ID</span>
-    </div>
-    <div class="flex items-center gap-3 bg-[#1c2540] border border-[#2a3454] rounded-xl px-4 py-3">
-      <span class="text-[#9aa3bf] text-[15px]">@</span>
-      <input type="email" placeholder="Enter your email"
-             class="flex-1 bg-transparent border-none outline-none text-slate-100 text-[13px] md:text-sm">
-    </div>
-  </div>
+        </div>
+    </header>
+    <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-4">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="relative w-full md:max-w-xl">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </div>
+                <input type="text" placeholder="Search lessons, grammar rules, idioms..."
+                    class="w-full pl-10 pr-4 py-2.5 bg-[#121625] border border-[#1e2436] rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
+            </div>
 
-  <!-- Password -->
-  <div class="mb-5">
-    <div class="flex justify-between items-center mb-2">
-      <span class="text-xs md:text-[13px] font-semibold">Your Password</span>
-      <span class="text-xs text-[#9aa3bf] cursor-pointer">Forgot?</span>
-    </div>
-    <div class="flex items-center gap-3 bg-[#1c2540] border border-[#2a3454] rounded-xl px-4 py-3">
-      <span class="text-[#9aa3bf] text-[15px]">🔑</span>
-      <input type="password" id="pwd" value="123456789" placeholder="Enter your password"
-             class="flex-1 bg-transparent border-none outline-none text-slate-100 text-[13px] md:text-sm">
-      <button onclick="togglePwd()" class="bg-transparent border-none cursor-pointer text-[#9aa3bf] text-[15px]">🚫👁</button>
-    </div>
-  </div>
+            <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-4">
+                <div
+                    class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a1f30] border border-amber-500/20 text-amber-400 text-xs font-semibold">
+                    <i class="fa-solid fa-clock-rotate-left text-amber-400"></i>
+                    <span>14 days</span>
+                </div>
 
-  <!-- Remember -->
-  <label class="flex items-center gap-2.5 text-[#9aa3bf] text-[13px] my-1.5 mb-6 md:mb-7 cursor-pointer">
-    <input type="checkbox" class="w-4 h-4 accent-[#6c6ef0]">
-    Remember me for 30 days
-  </label>
+                <button class="relative p-2 rounded-full text-slate-400 hover:text-white hover:bg-[#121625] transition">
+                    <i class="fa-regular fa-bell text-lg"></i>
+                    <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-pink-500 rounded-full"></span>
+                </button>
 
-  <!-- CTA -->
-  <button class="w-full py-3.5 md:py-4 rounded-2xl text-white text-sm md:text-[15px] font-semibold flex items-center justify-center gap-2.5 hover:brightness-110 transition bg-linear-to-b from-[#7b7ff5] to-[#6c6ef0]  hover:-translate-y-0.5">
-    Start Learning Free →
-  </button>
+                <div class="flex items-center gap-3 pl-2 border-l border-[#1e2436] md:border-l-0">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                        alt="Soran Avatar" class="w-9 h-9 rounded-full object-cover ring-2 ring-indigo-500/40">
+                    <div class="flex flex-col">
+                        <span class="text-sm font-semibold text-white leading-tight">Soran</span>
+                        <span class="text-xs text-slate-400 leading-tight">B2 - advance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
 
-<script>
-function togglePwd(){
-  const pwd = document.getElementById('pwd');
-  pwd.type = pwd.type === 'password' ? 'text' : 'password';
-}
-</script>
+        <section
+            class="bg-[#1e2330] border border-[#242838] flex flex-col sm:flex-row justify-between p-6 sm:p-8 items-start sm:items-center rounded-2xl gap-6 shadow-xl">
+            <div>
+                <span class="text-xs font-bold text-indigo-400 tracking-wider uppercase">NOCTURNAL SPRINT • WEEK
+                    43</span>
+                <h1 class="text-2xl sm:text-3xl font-bold text-white mt-1 leading-tight">
+                    Monday, September 21 — Keep the fire,<br class="hidden sm:inline"> Sora!
+                </h1>
+            </div>
+            <div
+                class="bg-emerald-500/10 border border-emerald-500/20 px-4 py-2.5 rounded-full flex items-center gap-2 shrink-0">
+                <span class="text-emerald-400 text-lg font-bold">⚡</span>
+                <span class="text-emerald-400 text-sm font-semibold">45 XP Today</span>
+            </div>
+        </section>
 
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div
+                class="bg-[#1e2330] border border-[#242838] p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6">
+                <div>
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-orange-500/20 border border-orange-500/30 p-3 text-2xl rounded-xl">🔥</span>
+                            <div>
+                                <h2 class="text-xl sm:text-2xl font-bold text-white">14-Day Streak</h2>
+                                <p class="text-xs text-slate-400 mt-0.5">Personal record: 14 days</p>
+                            </div>
+                        </div>
+                        <span
+                            class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            Emerald Tier
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-7 gap-1.5 sm:gap-2 mb-6">
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span class="text-xs font-medium text-slate-400">M</span>
+                            <span
+                                class="w-full aspect-square flex items-center justify-center bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-400 text-sm font-bold">✓</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span class="text-xs font-medium text-slate-400">T</span>
+                            <span
+                                class="w-full aspect-square flex items-center justify-center bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-400 text-sm font-bold">✓</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span class="text-xs font-medium text-slate-400">W</span>
+                            <span
+                                class="w-full aspect-square flex items-center justify-center bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-400 text-sm font-bold">✓</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span class="text-xs font-medium text-slate-400">T</span>
+                            <span
+                                class="w-full aspect-square flex items-center justify-center bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-400 text-sm font-bold">✓</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span class="text-xs font-medium text-slate-400">F</span>
+                            <span
+                                class="w-full aspect-square flex items-center justify-center bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-400 text-sm font-bold">✓</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span class="text-xs font-medium text-slate-400">S</span>
+                            <span
+                                class="w-full aspect-square flex items-center justify-center bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-400 text-sm font-bold">✓</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span class="text-xs font-medium text-slate-400">S</span>
+                            <span
+                                class="w-full aspect-square flex items-center justify-center bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-400 text-sm font-bold">✓</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex justify-between text-xs font-semibold">
+                        <span class="text-slate-400">Daily Time Target</span>
+                        <span class="text-emerald-400">12 / 15 mins (80%)</span>
+                    </div>
+                    <div class="bg-[#12151e] w-full h-2.5 rounded-full overflow-hidden p-0.5 border border-[#242838]">
+                        <div class="bg-emerald-500 h-full rounded-full transition-all duration-500" style="width: 80%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#1e2330] border border-[#242838] p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
+                <div class="flex justify-between items-center text-xs font-bold tracking-wider mb-6">
+                    <span class="uppercase text-slate-400">Weekly XP Trajectory</span>
+                    <span
+                        class="text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">+18%
+                        vs avg</span>
+                </div>
+
+                <div class="flex justify-between items-end h-40 pt-4">
+                    <div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+                        <div class="w-full max-w-8 h-[50%] bg-[#252c3d] rounded-t-lg"></div>
+                        <span class="font-bold text-xs text-slate-400">M</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+                        <div class="w-full max-w-8 h-[70%] bg-[#252c3d] rounded-t-lg"></div>
+                        <span class="font-bold text-xs text-slate-400">T</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+                        <div class="w-full max-w-8 h-[50%] bg-[#252c3d] rounded-t-lg"></div>
+                        <span class="font-bold text-xs text-slate-400">W</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+                        <div class="w-full max-w-8 h-[85%] bg-[#252c3d] rounded-t-lg"></div>
+                        <span class="font-bold text-xs text-slate-400">T</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+                        <div class="w-full max-w-8 h-[60%] bg-[#252c3d] rounded-t-lg"></div>
+                        <span class="font-bold text-xs text-slate-400">F</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+                        <div class="w-full max-w-8 h-[70%] bg-[#252c3d] rounded-t-lg"></div>
+                        <span class="font-bold text-xs text-slate-400">S</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+                        <div class="w-full max-w-8 h-[95%] bg-emerald-400 rounded-t-lg shadow-lg shadow-emerald-500/20">
+                        </div>
+                        <span class="font-bold text-xs text-emerald-400">S</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="bg-[#1e2330] border border-[#242838] p-6 sm:p-8 rounded-2xl">
+            <div class="space-y-1">
+                <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">ACTIVE COURSE</span>
+                <span class="block text-xs font-semibold text-slate-400 uppercase">B2 WORKPLACE FOCUS</span>
+            </div>
+
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 leading-snug">
+                Unit 4: Conversational English - Expressing Opinions at Work
+            </h2>
+
+            <div
+                class="bg-[#171b26] border border-[#242838] p-4 sm:p-5 mt-6 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Up Next</span>
+                    <h3 class="text-base sm:text-lg font-bold text-white mt-0.5">
+                        Agreeing &amp; Disagreeing Politely
+                    </h3>
+                </div>
+                <span class="px-3 py-1.5 bg-[#242838] text-slate-300 text-xs font-semibold rounded-lg shrink-0">
+                    5 min
+                </span>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <article
+                class="bg-[#1e2330] border border-[#242838] p-6 rounded-2xl flex flex-col justify-between hover:border-indigo-500/40 transition">
+                <div class="flex justify-between items-center mb-6">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-[#252c3d] border border-[#2d354a] flex items-center justify-center text-xl text-indigo-400">
+                        ◴
+                    </div>
+                    <span
+                        class="text-xs font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1.5 rounded-lg">
+                        +15 XP
+                    </span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white">Speed Listening</h3>
+                    <p class="text-xs text-slate-400 mt-1">3 min rapid audio</p>
+                </div>
+            </article>
+
+            <article
+                class="bg-[#1e2330] border border-[#242838] p-6 rounded-2xl flex flex-col justify-between hover:border-indigo-500/40 transition">
+                <div class="flex justify-between items-center mb-6">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-[#252c3d] border border-[#2d354a] flex items-center justify-center text-xl text-indigo-400">
+                        ☷
+                    </div>
+                    <span
+                        class="text-xs font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1.5 rounded-lg">
+                        +20 XP
+                    </span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white">Grammar Sprint</h3>
+                    <p class="text-xs text-slate-400 mt-1">10 tense queries</p>
+                </div>
+            </article>
+
+            <article
+                class="bg-[#1e2330] border border-[#242838] p-6 rounded-2xl flex flex-col justify-between hover:border-indigo-500/40 transition sm:col-span-2 lg:col-span-1">
+                <div class="flex justify-between items-center mb-6">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-[#252c3d] border border-[#2d354a] flex items-center justify-center text-xl text-indigo-400">
+                        ♧
+                    </div>
+                    <span
+                        class="text-xs font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1.5 rounded-lg">
+                        +25 XP
+                    </span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white">AI Speech Coach</h3>
+                    <p class="text-xs text-slate-400 mt-1">Phoneme feedback</p>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
 </body>
 
 </html>
