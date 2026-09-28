@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RTLearning Dashboard</title>
+    <script>(function(){try{if((localStorage.getItem("rtlTheme")||"dark")==="light"){document.documentElement.classList.add("light")}}catch(e){}})();</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/output.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +37,7 @@
                         class="bg-[#817dff] text-black px-4 py-2 rounded-lg font-semibold hover:bg-[#6c67f0] transition text-sm hover:text-white">
                         Dashboard
                     </a>
-                    <a href="./Pages/practice.html"
+                    <a href="./Pages/My course/My course.html"
                         class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">
                         My Course
                     </a>
@@ -79,7 +80,7 @@
                         class="bg-[#817dff] text-black px-4 py-2.5 rounded-lg font-semibold text-center hover:bg-[#6c67f0] transition">
                         Dashboard
                     </a>
-                    <a href="./Pages/practice.html"
+                    <a href="./Pages/My course/My course.html"
                         class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">
                         My Course
                     </a>
@@ -114,30 +115,48 @@
                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <i class="fa-solid fa-magnifying-glass text-sm"></i>
                 </div>
-                <input type="text" placeholder="Search lessons, grammar rules, idioms..."
-                    class="w-full pl-10 pr-4 py-2.5 bg-[#121625] border border-[#1e2436] rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
+                <input type="text" id="searchInput" placeholder="Search lessons, grammar rules, idioms..."
+                    class="w-full pl-10 pr-4 py-2.5 bg-[#121625] border border-[#1e2436] rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:shadow-[0_0_20px_rgba(99,102,241,0.15)] transition-all">
+                <div id="searchResults"
+                    class="hidden absolute left-0 right-0 top-full mt-2 z-40 rounded-xl border border-[#242838] bg-[#121625] shadow-2xl overflow-hidden divide-y divide-[#1e2436]">
+                </div>
             </div>
 
             <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-4">
-                <div
-                    class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a1f30] border border-amber-500/20 text-amber-400 text-xs font-semibold">
-                    <i class="fa-solid fa-clock-rotate-left text-amber-400"></i>
-                    <span>14 days</span>
-                </div>
+                    <div id="streakPill"
+                        class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a1f30] border border-amber-500/20 text-amber-400 text-xs font-semibold hover:bg-amber-500/10 hover:border-amber-500/40 transition cursor-default">
+                        <i class="fa-solid fa-clock-rotate-left text-amber-400"></i>
+                        <span id="streakDays">14 days</span>
+                    </div>
 
-                <button class="relative p-2 rounded-full text-slate-400 hover:text-white hover:bg-[#121625] transition">
-                    <i class="fa-regular fa-bell text-lg"></i>
-                    <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-pink-500 rounded-full"></span>
-                </button>
-
-                <div class="flex items-center gap-3 pl-2 border-l border-[#1e2436] md:border-l-0">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                        alt="Soran Avatar" class="w-9 h-9 rounded-full object-cover ring-2 ring-indigo-500/40">
-                    <div class="flex flex-col">
-                        <span class="text-sm font-semibold text-white leading-tight">Soran</span>
-                        <span class="text-xs text-slate-400 leading-tight">B2 - advance</span>
+                <div class="relative">
+                    <button id="bellBtn"
+                        class="relative p-2 rounded-full text-slate-400 hover:text-white hover:bg-[#121625] hover:ring-2 hover:ring-[#242838] transition-all">
+                        <i class="fa-regular fa-bell text-lg"></i>
+                        <span id="notifDot"
+                            class="absolute top-1.5 right-1.5 w-2 h-2 bg-pink-500 rounded-full ring-2 ring-[#0c0e17] animate-pulse"></span>
+                    </button>
+                    <div id="notifPanel"
+                        class="hidden absolute right-0 top-full mt-2 z-40 w-72 rounded-xl border border-[#242838] bg-[#121625] shadow-2xl overflow-hidden">
+                        <div class="flex items-center justify-between px-4 py-3 border-b border-[#242838]">
+                            <span class="text-xs font-bold tracking-wide text-slate-300 uppercase">Notifications</span>
+                            <button id="notifClear" class="text-[11px] text-indigo-400 hover:text-indigo-300">Mark all
+                                read</button>
+                        </div>
+                        <div id="notifList" class="max-h-64 overflow-y-auto divide-y divide-[#1e2436]"></div>
                     </div>
                 </div>
+
+                <a href="./Pages/Profile.html" title="Go to your profile"
+                    class="flex items-center gap-3 pl-2 border-l border-[#1e2436] md:border-l-0 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                        alt="Soran Avatar"
+                        class="js-user-avatar w-9 h-9 rounded-full object-cover ring-2 ring-indigo-500/40 group-hover:ring-[#817dff] transition">
+                    <div class="flex flex-col">
+                        <span class="js-user-name text-sm font-semibold text-white leading-tight">Soran</span>
+                        <span class="js-user-level text-xs text-slate-400 leading-tight">B2 - advance</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -145,18 +164,27 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
 
         <section
-            class="bg-[#1e2330] border border-[#242838] flex flex-col sm:flex-row justify-between p-6 sm:p-8 items-start sm:items-center rounded-2xl gap-6 shadow-xl">
-            <div>
-                <span class="text-xs font-bold text-indigo-400 tracking-wider uppercase">NOCTURNAL SPRINT • WEEK
-                    43</span>
-                <h1 class="text-2xl sm:text-3xl font-bold text-white mt-1 leading-tight">
+            class="dashboard-hero relative overflow-hidden bg-gradient-to-br from-[#1c2340] via-[#1e2330] to-[#152019] border border-[#2a3454] flex flex-col sm:flex-row justify-between p-6 sm:p-8 items-start sm:items-center rounded-3xl gap-6 shadow-2xl">
+            <div class="absolute -top-16 -right-10 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-20 -left-10 w-56 h-56 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative">
+                <span
+                    class="inline-flex items-center gap-2 text-[11px] font-bold text-indigo-300 tracking-wider uppercase bg-indigo-500/10 border border-indigo-500/30 px-3 py-1.5 rounded-full">
+                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                    Nocturnal Sprint • Week 43
+                </span>
+                <h1 id="greeting" class="text-2xl sm:text-3xl font-bold text-white mt-3 leading-tight">
                     Monday, September 21 — Keep the fire,<br class="hidden sm:inline"> Sora!
                 </h1>
+                <p class="text-sm text-slate-400 mt-2">You are one session away from keeping your streak alive.</p>
             </div>
             <div
-                class="bg-emerald-500/10 border border-emerald-500/20 px-4 py-2.5 rounded-full flex items-center gap-2 shrink-0">
-                <span class="text-emerald-400 text-lg font-bold">⚡</span>
-                <span class="text-emerald-400 text-sm font-semibold">45 XP Today</span>
+                class="relative pulse-ring bg-emerald-500/10 border border-emerald-500/25 px-5 py-3 rounded-2xl flex items-center gap-3 shrink-0">
+                <span class="text-2xl">⚡</span>
+                <div class="flex flex-col leading-tight">
+                    <span id="xpToday" class="text-emerald-300 text-base font-bold">45 XP Today</span>
+                    <span class="text-[11px] text-emerald-500/80">Keep earning</span>
+                </div>
             </div>
         </section>
 
@@ -166,10 +194,11 @@
                 <div>
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
                         <div class="flex items-center gap-4">
-                            <span class="bg-orange-500/20 border border-orange-500/30 p-3 text-2xl rounded-xl">🔥</span>
+                            <span
+                                class="animate-floaty bg-gradient-to-br from-orange-500/40 to-amber-500/10 border border-orange-500/40 shadow-lg shadow-orange-500/20 p-3.5 text-2xl rounded-2xl">🔥</span>
                             <div>
-                                <h2 class="text-xl sm:text-2xl font-bold text-white">14-Day Streak</h2>
-                                <p class="text-xs text-slate-400 mt-0.5">Personal record: 14 days</p>
+                                <h2 id="streakTitle" class="text-xl sm:text-2xl font-bold text-white">14-Day Streak</h2>
+                                <p id="streakRecord" class="text-xs text-slate-400 mt-0.5">Personal record: 14 days</p>
                             </div>
                         </div>
                         <span
@@ -178,7 +207,7 @@
                         </span>
                     </div>
 
-                    <div class="grid grid-cols-7 gap-1.5 sm:gap-2 mb-6">
+                    <div id="streakGrid" class="grid grid-cols-7 gap-1.5 sm:gap-2 mb-6">
                         <div class="flex flex-col items-center gap-1.5">
                             <span class="text-xs font-medium text-slate-400">M</span>
                             <span
@@ -220,10 +249,10 @@
                 <div class="space-y-2">
                     <div class="flex justify-between text-xs font-semibold">
                         <span class="text-slate-400">Daily Time Target</span>
-                        <span class="text-emerald-400">12 / 15 mins (80%)</span>
+                        <span id="timeTargetText" class="text-emerald-400">12 / 15 mins (80%)</span>
                     </div>
                     <div class="bg-[#12151e] w-full h-2.5 rounded-full overflow-hidden p-0.5 border border-[#242838]">
-                        <div class="bg-emerald-500 h-full rounded-full transition-all duration-500" style="width: 80%;">
+                        <div id="timeTargetBar" class="bg-gradient-to-r from-emerald-500 to-teal-300 h-full rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" style="width: 80%;">
                         </div>
                     </div>
                 </div>
@@ -231,13 +260,14 @@
 
             <div class="bg-[#1e2330] border border-[#242838] p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
                 <div class="flex justify-between items-center text-xs font-bold tracking-wider mb-6">
-                    <span class="uppercase text-slate-400">Weekly XP Trajectory</span>
-                    <span
+                    <span class="uppercase text-slate-400 flex items-center gap-2"><span class="text-indigo-400">📊</span>
+                        Weekly XP Trajectory</span>
+                    <span id="xpAvg"
                         class="text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">+18%
                         vs avg</span>
                 </div>
 
-                <div class="flex justify-between items-end h-40 pt-4">
+                <div id="xpChart" class="flex justify-between items-end h-40 pt-4">
                     <div class="flex flex-col items-center gap-2 w-full h-full justify-end">
                         <div class="w-full max-w-8 h-[50%] bg-[#252c3d] rounded-t-lg"></div>
                         <span class="font-bold text-xs text-slate-400">M</span>
@@ -272,80 +302,99 @@
 
         </section>
         <!-- Active course -->
-        <section class="bg-[#1e2330] border border-[#242838] p-6 sm:p-8 rounded-2xl">
-            <div class="bg-[#1e2330] border border-[#242838] p-6 sm:p-8 rounded-2xl ">
-                <p class="text-xs font-medium text-indigo-300 mb-2">Active Course &nbsp;·&nbsp; B2 Workplace Focus</p>
-                <h2 class="text-2xl font-bold mb-5">All lesson that you learn already</h2>
-                <div class="flex flex-wrap items-center justify-between gap-4 bg-[#1a1b24] rounded-2xl px-6 py-5">
-                    <p class="text-sm text-gray-300">Check your <span class="text-white font-medium">Speed
+        <section
+            class="active-course-banner relative overflow-hidden bg-gradient-to-r from-[#1c1f33] via-[#1e2330] to-[#1e2330] border border-[#2a3454] p-6 sm:p-8 rounded-3xl">
+            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-indigo-500 to-emerald-400"></div>
+            <div class="flex flex-wrap items-center justify-between gap-6">
+                <div>
+                    <p class="text-xs font-semibold text-indigo-300 mb-1.5 flex items-center gap-2">
+                        <span class="bg-indigo-500/15 border border-indigo-500/30 rounded-md px-2 py-0.5">Active
+                            Course</span>
+                        · B2 Workplace Focus
+                    </p>
+                    <h2 class="text-2xl font-bold text-white">All lessons that you learn already</h2>
+                    <p class="text-sm text-slate-400 mt-2">Check your <span class="text-white font-medium">Speed
                             Listening</span>, <span class="text-white font-medium">Grammar Sprint</span> &amp; <span
                             class="text-white font-medium">AI Speech Coach</span> in lesson</p>
-                    <a href="./Pages/rt-learning-dashboard.html"
-                        class="flex items-center gap-2 bg-[#23242f] hover:bg-[#2a2b38] text-sm text-gray-200 px-5 py-2.5 rounded-full transition-colors">
-                        Start <span>→</span>
-                    </a>
                 </div>
+                <a href="./Pages/rt-learning-dashboard.html"
+                    class="active-course-cta group flex items-center gap-2 bg-gradient-to-r from-[#817dff] to-[#6c67f0] hover:brightness-110 text-sm text-white font-semibold px-6 py-3 rounded-full transition shadow-lg shadow-indigo-500/25">
+                    Start <span class="transition-transform group-hover:translate-x-1">→</span>
+                </a>
             </div>
         </section>
 
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <article
-                class="bg-[#1e2330] border border-[#242838] p-6 rounded-2xl flex flex-col justify-between hover:border-indigo-500/40 transition">
-                <div class="flex justify-between items-center mb-6">
+                class="js-activity group cursor-pointer active:scale-[0.98] bg-[#1e2330] border border-[#242838] hover:border-indigo-500/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-500/10 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                <div class="flex justify-between items-start mb-6">
                     <div
-                        class="w-12 h-12 rounded-xl bg-[#252c3d] border border-[#2d354a] flex items-center justify-center text-xl text-indigo-400">
+                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500/30 to-indigo-500/5 border border-indigo-500/30 flex items-center justify-center text-xl text-indigo-300 shadow-lg shadow-indigo-500/10 group-hover:scale-110 transition-transform">
                         ◴
                     </div>
                     <span
-                        class="text-xs font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1.5 rounded-lg">
+                        class="text-xs font-bold bg-indigo-500/10 text-indigo-300 border border-indigo-500/25 px-3 py-1.5 rounded-lg">
                         +45 XP
                     </span>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold text-white">Speed Listening</h3>
                     <p class="text-xs text-slate-400 mt-1">3 min rapid audio</p>
+                    <span
+                        class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-400 opacity-0 group-hover:opacity-100 transition">Start
+                        session <span>→</span></span>
                 </div>
             </article>
 
             <article
-                class="bg-[#1e2330] border border-[#242838] p-6 rounded-2xl flex flex-col justify-between hover:border-indigo-500/40 transition">
-                <div class="flex justify-between items-center mb-6">
+                class="js-activity group cursor-pointer active:scale-[0.98] bg-[#1e2330] border border-[#242838] hover:border-emerald-500/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+                <div class="flex justify-between items-start mb-6">
                     <div
-                        class="w-12 h-12 rounded-xl bg-[#252c3d] border border-[#2d354a] flex items-center justify-center text-xl text-indigo-400">
+                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/30 to-emerald-500/5 border border-emerald-500/30 flex items-center justify-center text-xl text-emerald-300 shadow-lg shadow-emerald-500/10 group-hover:scale-110 transition-transform">
                         ☷
                     </div>
                     <span
-                        class="text-xs font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1.5 rounded-lg">
+                        class="text-xs font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/25 px-3 py-1.5 rounded-lg">
                         +60 XP
                     </span>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold text-white">Grammar Sprint</h3>
                     <p class="text-xs text-slate-400 mt-1">10 tense queries</p>
+                    <span
+                        class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 opacity-0 group-hover:opacity-100 transition">Start
+                        session <span>→</span></span>
                 </div>
             </article>
 
             <article
-                class="bg-[#1e2330] border border-[#242838] p-6 rounded-2xl flex flex-col justify-between hover:border-indigo-500/40 transition sm:col-span-2 lg:col-span-1">
-                <div class="flex justify-between items-center mb-6">
+                class="js-activity group cursor-pointer active:scale-[0.98] bg-[#1e2330] border border-[#242838] hover:border-fuchsia-500/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-fuchsia-500/10 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300 sm:col-span-2 lg:col-span-1">
+                <div class="flex justify-between items-start mb-6">
                     <div
-                        class="w-12 h-12 rounded-xl bg-[#252c3d] border border-[#2d354a] flex items-center justify-center text-xl text-indigo-400">
+                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-fuchsia-500/30 to-fuchsia-500/5 border border-fuchsia-500/30 flex items-center justify-center text-xl text-fuchsia-300 shadow-lg shadow-fuchsia-500/10 group-hover:scale-110 transition-transform">
                         ♧
                     </div>
                     <span
-                        class="text-xs font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1.5 rounded-lg">
+                        class="text-xs font-bold bg-fuchsia-500/10 text-fuchsia-300 border border-fuchsia-500/25 px-3 py-1.5 rounded-lg">
                         +75 XP
                     </span>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold text-white">AI Speech Coach</h3>
                     <p class="text-xs text-slate-400 mt-1">Phoneme feedback</p>
+                    <span
+                        class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-fuchsia-400 opacity-0 group-hover:opacity-100 transition">Start
+                        session <span>→</span></span>
                 </div>
             </article>
 
         </section>
     </main>
+
+    <script src="./js/ProfileSync.js"></script>
+    <script src="./js/Dashboard.js"></script>
+    <script src="./js/Theme.js"></script>
 </body>
 
 </html>

@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice Tests</title>
+    <script>(function () { try { if ((localStorage.getItem("rtlTheme") || "dark") === "light") { document.documentElement.classList.add("light") } } catch (e) { } })();</script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/theme.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +37,7 @@
                         class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">
                         Dashboard
                     </a>
-                    <a href="./practice.html"
+                    <a href="./My course/My course.html"
                         class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">
                         My Course
                     </a>
@@ -78,7 +80,7 @@
                         class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">
                         Dashboard
                     </a>
-                    <a href="./practice.html"
+                    <a href="./My course/My course.html"
                         class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">
                         My Course
                     </a>
@@ -131,18 +133,20 @@
                     <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-pink-500 rounded-full"></span>
                 </button>
 
-                <div class="flex items-center gap-3 pl-2 border-l border-[#1e2436] md:border-l-0">
+                <a href="./Profile.html" title="Go to your profile"
+                    class="flex items-center gap-3 pl-2 border-l border-[#1e2436] md:border-l-0 group cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                        alt="Saran Avatar" class="w-9 h-9 rounded-full object-cover ring-2 ring-indigo-500/40">
+                        alt="User avatar"
+                        class="js-user-avatar w-9 h-9 rounded-full object-cover ring-2 ring-indigo-500/40 group-hover:ring-[#817dff] transition">
                     <div class="flex flex-col">
-                        <span class="text-sm font-semibold text-white leading-tight">Saran</span>
-                        <span class="text-xs text-slate-400 leading-tight">B2 - advance</span>
+                        <span class="js-user-name text-sm font-semibold text-white leading-tight">Soran</span>
+                        <span class="js-user-level text-xs text-slate-400 leading-tight">B2 - advance</span>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
-    
+
 
     <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-6">
         <div
@@ -330,7 +334,10 @@
 
             </div>
         </div>
-    </main>    
+    </main>
+
+    <script src="../js/ProfileSync.js"></script>
+    <script src="../js/Theme.js"></script>
 </body>
 
 </html>
