@@ -174,3 +174,79 @@ html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
 html.light .placeholder-slate-500::placeholder { color: #94a3b8; }
 html.light .shadow-\[0_40px_80px_rgba\(0\,0\,0\,0\.45\)\],
 html.light .shadow-\[0_40px_80px_rgba\(0\,0\,0\,0\.5\)\] { box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12); }
+
+/* ---------- My Course catalog ---------- */
+.course-catalog-page .course-track-filters {
+    scrollbar-width: none;
+}
+.course-catalog-page .course-track-filters::-webkit-scrollbar {
+    display: none;
+}
+html.light .course-catalog-page .course-track-filters > * {
+    background-color: #ffffff;
+    border-color: #dbe2ef;
+    color: #475569;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+html.light .course-catalog-page .course-track-filters > a:hover {
+    background-color: #e8ecff;
+    color: #4338ca;
+}
+html.light .course-catalog-page .course-featured-card {
+    background: linear-gradient(110deg, #ffffff 0%, #f8faff 62%, #eff8f3 100%);
+    border-color: #dbe2ef;
+    box-shadow: 0 8px 24px rgba(30, 41, 59, 0.08);
+}
+html.light .course-catalog-page .course-progress-track {
+    background-color: #e2e8f0;
+}
+html.light .course-catalog-page .course-catalog-grid > div {
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 2px 8px rgba(30, 41, 59, 0.06);
+}
+html.light .course-catalog-page .course-catalog-grid > div:hover {
+    border-color: #a5b4fc;
+    box-shadow: 0 8px 20px rgba(30, 41, 59, 0.1);
+}
+
+/* ---------- Course pages ---------- */
+html.light .course-page [class*="bg-[#0B0F19]"],
+html.light .course-page [class*="bg-[#0D1117]"],
+html.light .course-page [class*="bg-[#0d1018]"],
+html.light .course-page [class*="bg-[#111827]"],
+html.light .course-page [class*="bg-[#131927]"],
+html.light .course-page [class*="bg-[#161B22]"],
+html.light .course-page [class*="bg-gray-800"],
+html.light .course-page [class*="bg-gray-900"],
+html.light .course-page [class*="bg-neutralBg"],
+html.light .course-page [class*="bg-surfaceBg"],
+html.light .course-page [class*="bg-slate-900/"],
+html.light .course-page [class*="bg-emerald-950/"] {
+    background-color: #ffffff;
+}
+html.light .course-page [class*="bg-emerald-900/"] {
+    background-color: #ecfdf5;
+}
+html.light .course-page [class*="border-gray-800"],
+html.light .course-page [class*="border-gray-700"],
+html.light .course-page [class*="border-[#151d2e]"],
+html.light .course-page [class*="border-emerald-900"],
+html.light .course-page [class*="border-emerald-800"],
+html.light .course-page [class*="border-emerald-700"] {
+    border-color: #dbe2ef;
+}
+html.light .course-page [class*="text-gray-100"],
+html.light .course-page [class*="text-emerald-50"],
+html.light .course-page [class*="text-emerald-200"] {
+    color: #475569;
+}
+html.light .course-page [class*="text-emerald-300"],
+html.light .course-page [class*="text-emerald-400"] {
+    color: #047857;
+}
+html.light .course-page [class*="text-indigo-300"],
+html.light .course-page [class*="text-indigo-400"],
+html.light .course-page [class*="text-indigo-500"] {
+    color: #4338ca;
+}
