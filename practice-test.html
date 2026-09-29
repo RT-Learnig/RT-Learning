@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RT Learning Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brandBg: '#0b0e14',
+                        cardBg: '#131722',
+                        innerCardBg: '#1a1f2e',
+                        accentBlue: '#6366f1',
+                        accentButton: '#7075f5',
+                        navHover: '#222838',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0e14;
+            color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-brandBg text-gray-200 min-h-screen pb-12 antialiased selection:bg-accentBlue selection:text-white">
+
+    <header class="bg-gray-900 w-full mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between gap-4 border-b border-gray-800/60 pb-4 md:border-b-0 md:pb-0">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-2.5 cursor-pointer">
+                <div class="w-9 h-9 rounded-full bg-slate-900 border border-slate-700/60 flex items-center justify-center font-bold text-xs shadow-inner">
+                    <span class="text-sky-400">R</span><span class="text-red-500">T</span>
+                </div>
+                <span class="font-bold text-lg tracking-tight text-white">RTLearning</span>
+            </div>
+
+            <!-- Mobile Navigation Toggle -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="p-2 text-gray-400 hover:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                <a href="#" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">Dashboard</a>
+                <a href="#" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">My courses</a>
+                <a href="#" class="px-5 py-2 text-sm font-medium text-white bg-accentBlue hover:bg-indigo-600 rounded-full shadow-lg shadow-indigo-500/20 transition-all">Practice Tests</a>
+                <a href="#" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">Profile</a>
+                <a href="#" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">Contact Us</a>
+            </nav>
+        </div>
+
+        <!-- Mobile Nav Menu (Collapsible) -->
+        <div id="mobile-menu" class="hidden md:hidden mt-3 pt-3 border-t border-gray-800 flex-col gap-2">
+            <a href="#" class="px-4 py-2 text-sm font-medium text-white bg-gray-800/50 rounded-lg">Dashboard</a>
+            <a href="#" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white">My courses</a>
+            <a href="#" class="px-4 py-2 text-sm font-medium text-white bg-accentBlue rounded-lg text-center">Practice Tests</a>
+            <a href="#" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white">Profile</a>
+            <a href="#" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Second Controls Bar (Search & User Info) -->
+    <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Search Field -->
+            <div class="relative w-full md:w-96">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </div>
+                <input 
+                    type="text" 
+                    placeholder="Search lessons, grammar rules, idioms..." 
+                    class="w-full pl-10 pr-4 py-2.5 bg-innerCardBg border border-gray-800/80 rounded-xl text-sm text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accentBlue focus:border-transparent transition-all"
+                >
+            </div>
+
+            <!-- Stats & Profile Info -->
+            <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-4 sm:gap-6">
+                <!-- Streak Badge -->
+                <div class="flex items-center gap-2 bg-innerCardBg/90 border border-amber-500/20 px-3.5 py-1.5 rounded-full text-xs font-semibold text-amber-400 shadow-sm">
+                    <i class="fa-solid fa-fire text-amber-500 text-sm"></i>
+                    <span>14 days</span>
+                </div>
+
+                <!-- Notifications -->
+                <button class="relative p-2.5 bg-innerCardBg hover:bg-gray-800 rounded-full text-gray-300 hover:text-white transition-colors border border-gray-800/80">
+                    <i class="fa-regular fa-bell text-sm"></i>
+                    <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full ring-2 ring-brandBg"></span>
+                </button>
+
+                <!-- User Profile -->
+                <div class="flex items-center gap-3">
+                    <img 
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
+                        alt="Soran profile picture" 
+                        class="w-9 h-9 rounded-full object-cover ring-2 ring-slate-700"
+                    >
+                    <div class="flex flex-col">
+                        <span class="text-sm font-semibold text-white leading-tight">Soran</span>
+                        <span class="text-[11px] text-gray-400 leading-tight">B2 - advance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+
+        <!-- Banner Section -->
+        <section class="bg-cardBg border border-gray-800/60 rounded-3xl p-6 sm:p-8 shadow-xl">
+            <!-- Active Course Badges -->
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+                <span class="text-[11px] font-bold tracking-wider text-sky-400 uppercase">ACTIVE COURSE</span>
+                <span class="text-[11px] font-bold tracking-wider text-gray-400 uppercase">B2 WORKPLACE FOCUS</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-2xl sm:text-3xl font-bold text-white mb-6">
+                All lesson that you learn already
+            </h1>
+
+            <!-- Sub Card Inside Banner -->
+            <div class="bg-innerCardBg/80 border border-gray-800/80 rounded-2xl p-4 sm:p-5 text-gray-200 text-sm sm:text-base font-medium flex items-center">
+                <span>Check your <strong class="text-white font-semibold">Speed Listening</strong> <strong class="text-white font-semibold">Grammar Sprint</strong> & <strong class="text-white font-semibold">AI Speech Coach</strong> In Lesson</span>
+            </div>
+        </section>
+
+        <!-- Course Cards List -->
+        <div class="space-y-6">
+
+            <!-- Card 1: Business Communication -->
+            <div class="bg-cardBg border border-gray-800/60 rounded-3xl p-5 sm:p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gray-700/80 transition-all duration-300 shadow-xl">
+                <!-- SVG Illustration Mockup -->
+                <div class="w-full md:w-80 h-48 rounded-2xl bg-white p-4 flex items-center justify-center shrink-0 overflow-hidden shadow-md">
+                    <!-- SVG Vector representation of people chatting -->
+                    <svg class="w-full h-full max-h-40" viewBox="0 0 300 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="110" r="22" fill="#F59E0B" />
+                        <circle cx="115" cy="120" r="24" fill="#EF4444" />
+                        <circle cx="180" cy="125" r="26" fill="#10B981" />
+                        <circle cx="240" cy="115" r="22" fill="#3B82F6" />
+                        
+                        <!-- Speech bubbles -->
+                        <path d="M40 50 Q 40 30 65 30 Q 90 30 90 50 Q 90 70 70 70 L 60 80 L 62 70 Q 40 70 40 50 Z" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+                        <path d="M100 40 Q 100 20 125 20 Q 150 20 150 40 Q 150 60 130 60 L 120 70 L 122 60 Q 100 60 100 40 Z" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+                        <path d="M210 45 Q 210 25 235 25 Q 260 25 260 45 Q 260 65 240 65 L 230 75 L 232 65 Q 210 65 210 45 Z" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+                        
+                        <!-- Wavy lines inside bubbles -->
+                        <path d="M52 45 Q 65 40 78 45" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M52 53 Q 65 48 78 53" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M112 35 Q 125 30 138 35" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M112 43 Q 125 38 138 43" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M222 40 Q 235 35 248 40" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M222 48 Q 235 43 248 48" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Text Content -->
+                <div class="flex-1 space-y-2 text-center md:text-left">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Business Communication</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xl">
+                        Learn how to communicate clearly and professionally with coworkers and clients.
+                    </p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="shrink-0 w-full md:w-auto">
+                    <button class="w-full md:w-auto px-7 py-3 bg-accentButton hover:bg-indigo-500 text-white font-medium text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-3 transition-all transform active:scale-95">
+                        <a href="first-quiz.html">Test Quiz</a>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2: Food & Restaurant English -->
+            <div class="bg-cardBg border border-gray-800/60 rounded-3xl p-5 sm:p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gray-700/80 transition-all duration-300 shadow-xl">
+                <!-- SVG Menu Card Mockup -->
+                <div class="w-full md:w-80 h-48 rounded-2xl bg-white p-4 flex flex-col justify-between shrink-0 overflow-hidden shadow-md text-gray-800 border-2 border-orange-500 relative">
+                    <div class="text-center">
+                        <h3 class="font-serif italic text-xl font-bold text-gray-900 border-b border-orange-200 pb-1">Menu</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[9px] font-sans">
+                        <div>
+                            <p class="font-bold text-orange-600 uppercase text-[8px]">STARTERS</p>
+                            <p class="text-gray-600">Spring Rolls</p>
+                            <p class="text-gray-600">French Onion Soup</p>
+                            <p class="text-gray-600">Tomato Bruschetta</p>
+                            <p class="text-gray-600">Caesar Salad</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-orange-600 uppercase text-[8px]">MAIN COURSE</p>
+                            <p class="text-gray-600">Grilled Salmon</p>
+                            <p class="text-gray-600">Roast Beef</p>
+                            <p class="text-gray-600">Chicken Pie</p>
+                            <p class="text-gray-600">Eggplant Lasagne</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-end text-[8px] text-gray-500 border-t border-gray-100 pt-1">
+                        <span>Side Dishes</span>
+                        <span class="font-bold text-orange-600">Dessert</span>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="flex-1 space-y-2 text-center md:text-left">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Food & Restaurant English</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xl">
+                        Learn how to order food, talk about meals and communicate at restaurants.
+                    </p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="shrink-0 w-full md:w-auto">
+                    <button class="w-full md:w-auto px-7 py-3 bg-accentButton hover:bg-indigo-500 text-white font-medium text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-3 transition-all transform active:scale-95">
+                        <a href="second-quiz.html">Test Quiz</a>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: Research Writing -->
+            <div class="bg-cardBg border border-gray-800/60 rounded-3xl p-5 sm:p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gray-700/80 transition-all duration-300 shadow-xl">
+                <!-- SVG Chart Mockup -->
+                <div class="w-full md:w-80 h-48 rounded-2xl bg-emerald-500 p-2.5 flex flex-col justify-between shrink-0 overflow-hidden shadow-md text-white">
+                    <div class="text-center font-bold text-xs uppercase tracking-wider mb-1">
+                        KNOW YOUR <span class="underline">SENTENCE TYPES</span>
+                    </div>
+                    <div class="bg-white rounded-xl p-2 text-gray-800 text-[8px] space-y-1.5 flex-1 flex flex-col justify-center">
+                        <div class="bg-sky-100 p-1 rounded border-l-2 border-sky-500">
+                            <span class="font-bold text-sky-800">SIMPLE SENTENCE:</span> Contains one independent clause.
+                        </div>
+                        <div class="bg-emerald-100 p-1 rounded border-l-2 border-emerald-500">
+                            <span class="font-bold text-emerald-800">COMPOUND SENTENCE:</span> Joined by a coordinating conjunction.
+                        </div>
+                        <div class="bg-amber-100 p-1 rounded border-l-2 border-amber-500">
+                            <span class="font-bold text-amber-800">COMPLEX SENTENCE:</span> Independent and dependent clause.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="flex-1 space-y-2 text-center md:text-left">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Research Writing</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xl">
+                        Learn how to organize research ideas, write clearly and support your arguments.
+                    </p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="shrink-0 w-full md:w-auto">
+                    <button class="w-full md:w-auto px-7 py-3 bg-accentButton hover:bg-indigo-500 text-white font-medium text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-3 transition-all transform active:scale-95">
+                        <a href="thirt-quiz.html">Test Quiz</a>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Interactive script for mobile navigation menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu.classList.toggle('flex');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
