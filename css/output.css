@@ -194,12 +194,10 @@
     font-variation-settings: var(--default-mono-font-variation-settings, normal);
     font-size: 1em;
   }
-<<<<<<< HEAD
   small {
     font-size: 80%;
   }
   sub, sup {
-=======
 
   small {
     font-size: 80%;
@@ -207,20 +205,17 @@
 
   sub,
   sup {
->>>>>>> origin/feature/develop
     font-size: 75%;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
   }
-<<<<<<< HEAD
   sub {
     bottom: -0.25em;
   }
   sup {
     top: -0.5em;
   }
-=======
 
   sub {
     bottom: -0.25em;
@@ -230,13 +225,11 @@
     top: -0.5em;
   }
 
->>>>>>> origin/feature/develop
   table {
     text-indent: 0;
     border-color: inherit;
     border-collapse: collapse;
   }
-<<<<<<< HEAD
   :-moz-focusring:where(:not(iframe)) {
     outline: auto;
   }
@@ -258,7 +251,6 @@
     height: auto;
   }
   button, input, select, optgroup, textarea, ::file-selector-button {
-=======
 
   :-moz-focusring:where(:not(iframe)) {
     outline: auto;
@@ -302,7 +294,6 @@
   optgroup,
   textarea,
   ::file-selector-button {
->>>>>>> origin/feature/develop
     font: inherit;
     font-feature-settings: inherit;
     font-variation-settings: inherit;
@@ -312,7 +303,6 @@
     background-color: transparent;
     opacity: 1;
   }
-<<<<<<< HEAD
   :where(select:is([multiple], [size])) optgroup {
     font-weight: bolder;
   }
@@ -328,7 +318,6 @@
   @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
     ::placeholder {
       color: currentcolor;
-=======
 
   :where(select:is([multiple], [size])) optgroup {
     font-weight: bolder;
@@ -350,20 +339,17 @@
     ::placeholder {
       color: currentcolor;
 
->>>>>>> origin/feature/develop
       @supports (color: color-mix(in lab, red, red)) {
         color: color-mix(in oklab, currentcolor 50%, transparent);
       }
     }
   }
-<<<<<<< HEAD
   textarea {
     resize: vertical;
   }
   ::-webkit-search-decoration {
     -webkit-appearance: none;
   }
-=======
 
   textarea {
     resize: vertical;
@@ -373,12 +359,10 @@
     -webkit-appearance: none;
   }
 
->>>>>>> origin/feature/develop
   ::-webkit-date-and-time-value {
     min-height: 1lh;
     text-align: inherit;
   }
-<<<<<<< HEAD
   ::-webkit-datetime-edit {
     display: inline-flex;
   }
@@ -400,7 +384,6 @@
   ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
     height: auto;
   }
-=======
 
   ::-webkit-datetime-edit {
     display: inline-flex;
@@ -441,12 +424,10 @@
     height: auto;
   }
 
->>>>>>> origin/feature/develop
   [hidden]:where(:not([hidden="until-found"])) {
     display: none !important;
   }
 }
-<<<<<<< HEAD
 @layer utilities {
   .pointer-events-none {
     pointer-events: none;
@@ -1759,7 +1740,6 @@
     }
   }
 }
-=======
 
 @layer utilities {
   .mt-2 {
@@ -3258,4 +3238,3 @@
     }
   }
 }
->>>>>>> origin/feature/develop
