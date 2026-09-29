@@ -15,6 +15,26 @@
         oldNavigation.remove();
     }
 
+    var coursePath = decodeURIComponent(window.location.pathname);
+    var courseTracks = [
+        { folder: "Business English .course", page: "Business English .html" },
+        { folder: "IELTS & TOEFL.course", page: "IELTS & TOEFL.html" },
+        { folder: "Everyday Fluency.course", page: "Everyday Fluency.html" },
+        { folder: "academic-writing-courses", page: "Academic Writing .html" }
+    ];
+    var currentTrack = courseTracks.find(function (track) {
+        return coursePath.includes("/" + track.folder + "/");
+    });
+    var isTrackLandingPage = currentTrack && coursePath.endsWith("/" + currentTrack.folder + "/" + currentTrack.page);
+    var main = document.querySelector("main");
+
+    if (currentTrack && !isTrackLandingPage && main) {
+        var backRow = document.createElement("div");
+        backRow.className = "mb-5 flex justify-end";
+        backRow.innerHTML = '<a href="' + pageUrl("Pages/My course/" + currentTrack.folder + "/" + currentTrack.page) + '" aria-label="Back to course category" class="inline-flex items-center gap-2 rounded-lg bg-[#817dff] px-4 py-2.5 text-sm font-semibold text-[#111321] transition hover:bg-[#9692ff]"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7 7-7M3 12h18" /></svg>Back</a>';
+        main.prepend(backRow);
+    }
+
     var header = document.createElement("header");
     header.className = "w-full bg-[#171b26] border-b border-[#242838] sticky top-0 z-50";
     header.innerHTML = `
@@ -28,7 +48,7 @@
                 <nav class="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main navigation">
                     <a href="${pageUrl("index.html")}" class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">Dashboard</a>
                     <a href="${pageUrl("Pages/My course/My course.html")}" aria-current="page" class="bg-[#817dff] text-black px-4 py-2 rounded-lg font-semibold hover:bg-[#6c67f0] transition text-sm hover:text-white">My Course</a>
-                    <a href="${pageUrl("Pages/practice.html")}" class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">Practice Tests</a>
+                    <a href="${pageUrl("Pages/Practice Test/practice-test.html")}" class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">Practice Tests</a>
                     <a href="${pageUrl("Pages/Profile.html")}" class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">Profile</a>
                     <a href="${pageUrl("Pages/Contact.html")}" class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm">Contact Us</a>
                     <a href="${pageUrl("Pages/Logout.html")}" class="text-gray-400 hover:text-white px-3 py-2 rounded-lg hover:bg-[#242838] transition text-sm flex items-center gap-1.5">
@@ -44,7 +64,7 @@
                 <div class="flex flex-col gap-1">
                     <a href="${pageUrl("index.html")}" class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">Dashboard</a>
                     <a href="${pageUrl("Pages/My course/My course.html")}" aria-current="page" class="bg-[#817dff] text-black px-4 py-2.5 rounded-lg font-semibold text-center hover:bg-[#6c67f0] transition">My Course</a>
-                    <a href="${pageUrl("Pages/practice.html")}" class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">Practice Tests</a>
+                    <a href="${pageUrl("Pages/Practice Test/practice-test.html")}" class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">Practice Tests</a>
                     <a href="${pageUrl("Pages/Profile.html")}" class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">Profile</a>
                     <a href="${pageUrl("Pages/Contact.html")}" class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">Contact Us</a>
                     <a href="${pageUrl("Pages/Logout.html")}" class="text-gray-300 hover:text-white px-4 py-2.5 rounded-lg hover:bg-[#242838] transition">Logout</a>

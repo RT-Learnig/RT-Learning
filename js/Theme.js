@@ -78,7 +78,7 @@ var MOON_SVG = '<svg class="w-5 h-5 text-indigo-300" width="18" height="18" view
         var found = false;
 
         // Desktop navbars (skip the mobile menu nav)
-        var navs = document.querySelectorAll("header nav:not(#mobile-menu)");
+        var navs = document.querySelectorAll("header nav:not(#mobile-menu):not(#practice-mobile-menu)");
         Array.prototype.forEach.call(navs, function (nav) {
             if (nav.querySelector(".js-theme-toggle")) return;
             nav.appendChild(makeButton(false));
@@ -86,7 +86,7 @@ var MOON_SVG = '<svg class="w-5 h-5 text-indigo-300" width="18" height="18" view
         });
 
         // Mobile menu — add a full-width item at the end of its list
-        var mm = document.getElementById("mobile-menu");
+        var mm = document.getElementById("mobile-menu") || document.getElementById("practice-mobile-menu");
         if (mm) {
             var list = mm.querySelector(".flex.flex-col") || mm;
             if (!list.querySelector(".js-theme-toggle")) {

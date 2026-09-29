@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RT Learning - Words of Wonders</title>
+  <script src="../../../../../js/PracticeNav.js" defer></script>
+  <script src="../../../../../js/Theme.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,24 +43,21 @@
         <span class="text-lg font-bold tracking-tight text-white">RT Learning</span>
       </div>
       <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold tracking-wide">
-        <a href="#" class="text-slate-300 hover:text-white transition-colors">Dashboard</a>
-        <a href="#" class="text-slate-300 hover:text-white transition-colors">My courses</a>
-        <a href="#" class="bg-[#5c63ed] text-white px-4 py-2 rounded-xl shadow-lg shadow-indigo-500/20 hover:bg-indigo-600 transition-all duration-200">
+        <a href="../../../../../index.html" class="text-slate-300 hover:text-white transition-colors">Dashboard</a>
+        <a href="../../../../My%20course/My%20course.html" class="text-slate-300 hover:text-white transition-colors">My courses</a>
+        <a href="../../../practice-test.html" class="bg-[#5c63ed] text-white px-4 py-2 rounded-xl shadow-lg shadow-indigo-500/20 hover:bg-indigo-600 transition-all duration-200">
           Practice Tests
         </a>
-        <a href="#" class="text-slate-300 hover:text-white transition-colors">Profile</a>
-        <a href="#" class="text-slate-300 hover:text-white transition-colors">Contact Us</a>
+        <a href="../../../../Profile.html" class="text-slate-300 hover:text-white transition-colors">Profile</a>
+        <a href="../../../../Contact.html" class="text-slate-300 hover:text-white transition-colors">Contact Us</a>
       </nav>
     </div>
   </header>
   <main class="grow max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
 
-    <!-- Top Controls: Back Button -->
-    <div class="flex items-center">
-      <button onclick="history.back()" class="bg-[#23a075] hover:bg-[#1b8460] text-white font-black text-lg sm:text-xl px-6 py-2 rounded-xl shadow-md transition-all active:scale-95 flex items-center space-x-1">
-        <span><a href="start-module.html">&lt;&lt;Back</a></span>
-      </button>
-    </div>
+    <a href="../start-module.html" aria-label="Back to practice options" class="inline-flex items-center gap-2 rounded-xl bg-[#23a075] px-5 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-[#1b8460] active:scale-95">
+      <span aria-hidden="true">&larr;</span> Back
+    </a>
 
     <!-- Title Box -->
     <div class="bg-[#092523] border-2 border-[#149c82] rounded-3xl py-5 px-6 text-center shadow-xl">
@@ -81,8 +80,8 @@
       <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 min-h-80 py-4">
         
         <!-- Left Side: Crossword Board Grid -->
-        <div class="relative flex items-center justify-center p-4 bg-slate-900/30 rounded-2xl border border-white/5 shadow-inner">
-          <div id="crossword-grid" class="grid grid-cols-7 gap-1.5 sm:gap-2">
+        <div class="relative flex min-w-0 max-w-full items-center justify-center p-3 sm:p-4 bg-slate-900/30 rounded-2xl border border-white/5 shadow-inner">
+          <div id="crossword-grid" class="grid grid-cols-7 gap-1 sm:gap-2">
             <!-- Grid cells generated via JS to match exact layout -->
           </div>
         </div>
@@ -103,10 +102,10 @@
             <!-- Dynamically populated -->
           </div>
 
-          <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-[#d2d5da] border-4 border-[#ca871b] shadow-2xl flex items-center justify-center">
+          <div id="letter-wheel" class="relative w-[min(72vw,18rem)] max-w-full aspect-square rounded-full bg-[#d2d5da] border-4 border-[#ca871b] shadow-2xl flex items-center justify-center overflow-hidden">
             
             <!-- Interactive Line Canvas -->
-            <canvas id="wheel-canvas" width="288" height="288" class="absolute inset-0 z-10 touch-none pointer-events-auto cursor-pointer rounded-full"></canvas>
+            <canvas id="wheel-canvas" width="288" height="288" class="absolute inset-0 z-10 w-full h-full touch-none pointer-events-auto cursor-pointer rounded-full"></canvas>
 
             <!-- Letter Nodes on Wheel -->
             <!-- Letters: C, L, O, C, K, A (Forms COAL, CLOCK, CLOAK, LACK, COLA, OAK, COCK) -->
@@ -246,13 +245,13 @@
           const cell = document.createElement('div');
           
           if (item) {
-            cell.className = 'w-7 h-7 sm:w-9 sm:h-9 bg-white text-slate-900 rounded-md sm:rounded-lg font-extrabold flex items-center justify-center text-base sm:text-xl shadow-md border border-slate-300 transition-all duration-300';
+            cell.className = 'w-6 h-6 sm:w-9 sm:h-9 bg-white text-slate-900 rounded-md sm:rounded-lg font-extrabold flex items-center justify-center text-sm sm:text-xl shadow-md border border-slate-300 transition-all duration-300';
             cell.dataset.char = item.char;
             cell.dataset.id = `${r}_${c}`;
             // Reveal text if already solved
             cell.innerText = cell.classList.contains('solved') ? item.char : '';
           } else {
-            cell.className = 'w-7 h-7 sm:w-9 sm:h-9 opacity-0 pointer-events-none';
+            cell.className = 'w-6 h-6 sm:w-9 sm:h-9 opacity-0 pointer-events-none';
           }
           gridContainer.appendChild(cell);
         }
@@ -266,7 +265,6 @@
       const radius = 95; // Radius inside 288px canvas
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
-
       letters.forEach((char, index) => {
         const angle = (index * (2 * Math.PI / count)) - (Math.PI / 2);
         const x = centerX + radius * Math.cos(angle);
@@ -276,8 +274,8 @@
 
         const letterDiv = document.createElement('div');
         letterDiv.className = 'absolute w-12 h-12 -ml-6 -mt-6 rounded-full flex items-center justify-center font-black text-2xl text-slate-900 transition-transform';
-        letterDiv.style.left = `${x}px`;
-        letterDiv.style.top = `${y}px`;
+        letterDiv.style.left = `${(x / canvas.width) * 100}%`;
+        letterDiv.style.top = `${(y / canvas.height) * 100}%`;
         letterDiv.innerText = char;
         lettersContainer.appendChild(letterDiv);
       });
@@ -476,7 +474,6 @@
     canvas.addEventListener('touchstart', handleStart, { passive: false });
     canvas.addEventListener('touchmove', handleMove, { passive: false });
     window.addEventListener('touchend', handleEnd);
-
     // Controls
     document.getElementById('btn-shuffle').addEventListener('click', () => {
       letters.sort(() => Math.random() - 0.5);

@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet">
     <script src="../../js/CourseNav.js" defer></script>
+    <script src="../../js/StreakSync.js" defer></script>
 </head>
 
 <body class="course-catalog-page bg-[#0d1018] text-white">
@@ -35,7 +36,7 @@
                         My Course
                     </a>
 
-                    <a href="../practice.html" class="text-gray-400 hover:text-white transition">
+                    <a href="../Practice%20Test/practice-test.html" class="text-gray-400 hover:text-white transition">
                         Practice Tests
                     </a>
 
@@ -63,7 +64,7 @@
                         class="text-gray-400 hover:text-white px-3 py-3 rounded-lg hover:bg-[#242838] transition">
                         My Course
                     </a>
-                    <a href="../practice.html"
+                    <a href="../Practice%20Test/practice-test.html"
                         class="text-gray-400 hover:text-white px-3 py-3 rounded-lg hover:bg-[#242838] transition">
                         Practice Tests
                     </a>
@@ -79,7 +80,7 @@
             </nav>
         </div>
     </header>
-    <main class="w-full px-2 md:px-12 lg:px-16 py-6">
+    <main class="w-full px-2 md:px-12 lg:px-16 ">
         <section class="w-full my-4">
             <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="relative w-full md:flex-1">
@@ -102,7 +103,7 @@
                             <path d="M3.5 12a8.5 8.5 0 1 0 2.2-5.7L3.5 8.5" />
                             <path d="M3.5 4.5v4h4M12 7v5l3 2" />
                         </svg>
-                        <span>14 days</span>
+                        <span class="js-streak-days">14 days</span>
                     </div>
 
                     <button type="button" aria-label="Notifications"
@@ -639,6 +640,8 @@
             </div>
         </div>
     </main>
+    <script src="/js/Proffile.js"></script>
+    <script src="/js/Dashboard.js"></script>
 </body>
 
 </html>
