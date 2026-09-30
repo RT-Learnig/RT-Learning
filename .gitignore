@@ -26,8 +26,7 @@ build/
 coverage/
 .cache/
 .parcel-cache/
-package.json
-package-lock.json
-node_modules
-css
+robots.txt
+sitemap.xml
+googledc8750b343944e10.html
 
