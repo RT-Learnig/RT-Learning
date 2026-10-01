@@ -26,7 +26,5 @@ build/
 coverage/
 .cache/
 .parcel-cache/
-robots.txt
-sitemap.xml
 
 
