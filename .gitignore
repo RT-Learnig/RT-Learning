@@ -26,5 +26,6 @@ build/
 coverage/
 .cache/
 .parcel-cache/
+robots.txt
 
 
